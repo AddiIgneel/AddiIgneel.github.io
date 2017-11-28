@@ -87,7 +87,7 @@ This guide assumes you have created an account and are using trial version.
     5. source .bashrc
     6. conda create -n tensorflow
     7. source activate tensorflow
-    8. wget https://pypi.python.org/packages/04/c4/ffb89dbea9e43e82665ff088fd08aa25aa93301aa8c480de278c8f576ea1/tensorflow_gpu-1.0.1-               cp27-cp27mu-manylinux1_x86_64.whl#md5=c06b11dee765a99b1814ca393aaf558a
+    8. wget https://pypi.python.org/packages/04/c4/ffb89dbea9e43e82665ff088fd08aa25aa93301aa8c480de278c8f576ea1/tensorflow_gpu-1.0.1-cp27-cp27mu-manylinux1_x86_64.whl#md5=c06b11dee765a99b1814ca393aaf558a
     9. pip install tensorflow_gpu-1.0.1-cp27-cp27mu-manylinux1_x86_64.whl
 
 16. Run the following commands one by one to install gcsfuse to use the bucket we created in step 5.
