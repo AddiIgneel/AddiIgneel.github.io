@@ -8,21 +8,56 @@ This guide assumes you have created an account and are using trial version.
 
 1. Click on IAM & ADMIN from left bar and then select Quotas. Update your account to Billing Account. There would be a blue button with option on right of the screen.
 
-2. Select Region option and only select " ". After selection scroll down and select Tesla K80 GPU by click the box left to it. Choose Edit Quotas on top of the page. Provide your cell no and set the current limit to 1. Provide the justification. Wait for email. You will get e-mail from google confirming the increase in GPU.
 
-![My helpful screenshot]({{ "/assets/hello.jpg" | https://addiigneel.github.io/assets/hello.jpg }})
+2. Select Region option and only select "Us-east1". After selection scroll down and select Tesla K80 GPU by click the box left to it. Choose Edit Quotas on top of the page. Provide your cell no and set the current limit to 1. Provide the justification. Wait for email. You will get e-mail from google confirming the increase in GPU.
+
+![Selection Region]({{ "/assets/region.jpg" | https://addiigneel.github.io/assets/region.jpg }})
+
+![Editing Quotas]({{ "/assets/k80.jpg" | https://addiigneel.github.io/assets/k80.jpg }})
+
+![Editing Quotas]({{ "/assets/k80_1.jpg" | https://addiigneel.github.io/assets/k80_1.jpg }})
 
 3. Select VPC Network from the left bar. Go to Firewall rules. Create a new rule. Fill the deatils as shown below in image.
-4. Now go to Compute Engine. Select Images and then create new Image. Fill the next form as shown in picture below. Image will take 10-15 minutes to be created.
-5. Click on storage from the left column. Create a bucket. Choose Regional option. 
-6. Upload the "setting.zip" file to this bucket. The file can be downloaded from following link : 
-7. Go to VM Instances and create new. Select the region. Select the RAM, CPU you like. Click customize and select GPU as shown below. 
-Select change button shown in boot disk. Select Custom Images. Select the image created in step 4. 
-7. Scroll down and select the tick box next to "Allow HTTP traffic and Allow HTTPS traffic"
-8. Click on Management,Disks,Networking blue bar. Select Networking and type jupyter in network tag as shown below.
-9. Click on create Instance. 
-10. Click on ssh to launch the instance.
-11. Create a new file with following command : "nano script.sh" and paste the following contents in it. Ctrl+C and Ctrl+V works
+   The last is to be entered with following: priority field: 65534 , protocols and port: tcp:9999;tcp:6006
+
+![VPC]({{ "/assets/vpc.jpg" | https://addiigneel.github.io/assets/vpc.jpg }})
+
+![Firewall Rule]({{ "/assets/firewall.jpg" | https://addiigneel.github.io/assets/firewall.jpg }})
+
+![Firewall Rule]({{ "/assets/firewall_1.jpg" | https://addiigneel.github.io/assets/firewall_1.jpg }})
+
+4. Now go to Compute Engine. Select Images and then create Image. Fill the next form as shown in picture below. Image will take 10-15 minutes to be created. Source : Cloud Storage File .... Cloud Storage File: cs231n-files/cs231n_image.tar.gz
+
+![Image Creation]({{ "/assets/image.jpg" | https://addiigneel.github.io/assets/image.jpg }})
+
+5. Click on storage from the left column and then browse. Click on Create Bucket. Enter name and Choose Regional option. 
+
+![Storage]({{ "/assets/storage.jpg" | https://addiigneel.github.io/assets/storage.jpg }})
+
+![Storage]({{ "/assets/storage_1.jpg" | https://addiigneel.github.io/assets/storage_1.jpg }})
+
+6. Upload the "setting.zip" file to this bucket. The file can be downloaded from following link : https://drive.google.com/open?id=1-hPhx2khRu5SqALow0T3VkmOnZTKepGu
+
+7. Go to compute engine and then VM Instances. Click on create new instance. Select region as "Us-East1-d" Select the RAM, CPU you like. Click customize and select GPU as shown below. 
+
+![Instance Creation]({{ "/assets/instance_1.jpg" | https://addiigneel.github.io/assets/instance_1.jpg }})
+
+8. Select change button shown in boot disk column. Select Custom Images. Select the image created in step 4. 
+
+![Instance Creation]({{ "/assets/instance_2.jpg" | https://addiigneel.github.io/assets/instance_2.jpg }})
+
+9. Scroll down and select the tick box next to "Allow HTTP traffic and Allow HTTPS traffic"
+
+8. Click on Management,Disks,Networking blue bar. Select Networking and type jupyter in Network Tag field as shown below.
+
+![Instance Creation]({{ "/assets/instance_3.jpg" | https://addiigneel.github.io/assets/instance_3.jpg }})
+
+
+10. Click on create Instance. 
+
+11. Once the instance is launched. Click on ssh to launch the instance.
+
+12. Create a new file with following command : "nano script.sh" and paste the following contents in it. Ctrl+C and Ctrl+V works on terminal window.
       
         #!/bin/bash
         echo "Checking for CUDA and installing."
@@ -36,9 +71,13 @@ Select change button shown in boot disk. Select Custom Images. Select the image 
         fi
         
 12. Use Ctrl+X and then Y to save the file.
+
 13. Run the following command: chmod +x script.sh
+
 14. Run the script by : sudo ./script.sh
+
 15. Wait for the latest GPU drivers to be installed.
+
 16. Run the following commands to install anaconda, jupyter notebook and tensorflow.
     
     1. wget https://repo.continuum.io/archive/Anaconda2-5.0.0-Linux-x86_64.sh
@@ -48,7 +87,7 @@ Select change button shown in boot disk. Select Custom Images. Select the image 
     5. source .bashrc
     6. conda create -n tensorflow
     7. source activate tensorflow
-    8. wget https://pypi.python.org/packages/04/c4/ffb89dbea9e43e82665ff088fd08aa25aa93301aa8c480de278c8f576ea1/tensorflow_gpu-1.0.1-cp27-cp27mu-manylinux1_x86_64.whl#md5=c06b11dee765a99b1814ca393aaf558a
+    8. wget https://pypi.python.org/packages/04/c4/ffb89dbea9e43e82665ff088fd08aa25aa93301aa8c480de278c8f576ea1/tensorflow_gpu-1.0.1-               cp27-cp27mu-manylinux1_x86_64.whl#md5=c06b11dee765a99b1814ca393aaf558a
     9. pip install tensorflow_gpu-1.0.1-cp27-cp27mu-manylinux1_x86_64.whl
 
 16. Run the following commands one by one to install gcsfuse to use the bucket we created in step 5.
@@ -58,16 +97,24 @@ Select change button shown in boot disk. Select Custom Images. Select the image 
     3. curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
     4. sudo apt-get update
     5. sudo apt-get install gcsfuse
-    6. mkdir mount
-    7. gcsfuse <your bucket name> ./mount
-    8. cp mount/setting.zip ./
-    9. unzip setting.zip
-    10. jupyter notebook --generate-config  ** the following command will print a path like /home/<your username>..../.jupyter/...
-    12. copy the path till .jupyter
-    11. mv mycert.pem <paste path here>
-    12. mv jupyter_notebook_config.py <paste path here>
-    13. Run jupyter notebook password and type a password.
+    
+17. Now copy the setting.zip file by using following commands from bucket:
+    
+    1. mkdir mount
+    2. gcsfuse <your bucket name> ./mount
+    3. cp mount/setting.zip ./
+    4. unzip setting.zip
+    
+18. Copy the files extracted to make sure jupyter notebook works:
+      
+    1. jupyter notebook --generate-config  ** the following command will print a path like /home/<your username>..../.jupyter/...
+    2. copy the path till .jupyter
+    3. mv mycert.pem <paste path here>
+    4. mv jupyter_notebook_config.py <paste path here>
+    5. jupyter notebook password ( give the password)
+    6. jupyter notebook
  
  17. Go to VM instance page and copy the external IP for your instance. Open a new tab in browswer paste it and write :9999 after it. 
- 18. Enter the password. Jupyter notebook should be working.
+ 18. Enter the password. Jupyter notebook should be working now.
     
+ Dont forget to shutdown the instance.
