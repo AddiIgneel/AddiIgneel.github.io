@@ -11,7 +11,7 @@ This guide assumes you have created an account and are using trial version.
 
 2. Select Region option and only select "Us-east1". After selection scroll down and select Tesla K80 GPU by click the box left to it. Choose Edit Quotas on top of the page. Provide your cell no and set the current limit to 1. Provide the justification. Wait for email. You will get e-mail from google confirming the increase in GPU.
 
-![Selection Region]({{ "/assets/region.jpg" | https://addiigneel.github.io/assets/region.jpg }})
+![Selection Region]({{ "/assets/region.jpg" | https://AddiIgneel.github.io/assets/region.PNG }})
 
 ![Editing Quotas]({{ "/assets/k80.jpg" | https://addiigneel.github.io/assets/k80.jpg }})
 
