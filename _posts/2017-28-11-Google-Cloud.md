@@ -13,44 +13,44 @@ This guide assumes you have created an account and are using trial version.
 
 ![Selection Region]({{ "/assets/region.jpg" | https://AddiIgneel.github.io/assets/region.PNG }})
 
-![Editing Quotas]({{ "/assets/k80.jpg" | https://AddiIgneel.github.io/assets/k80.jpg }})
+![Editing Quotas]({{ "/assets/k80.jpg" | https://AddiIgneel.github.io/assets/k80.PNG }})
 
-![Editing Quotas]({{ "/assets/k80_1.jpg" | https://AddiIgneel.github.io/assets/k80_1.jpg }})
+![Editing Quotas]({{ "/assets/k80_1.jpg" | https://AddiIgneel.github.io/assets/k80_1.PNG }})
 
 3. Select VPC Network from the left bar. Go to Firewall rules. Create a new rule. Fill the deatils as shown below in image.
    The last is to be entered with following: priority field: 65534 , protocols and port: tcp:9999;tcp:6006
 
-![VPC]({{ "/assets/vpc.jpg" | https://AddiIgneel.github.io/assets/vpc.jpg }})
+![VPC]({{ "/assets/vpc.jpg" | https://AddiIgneel.github.io/assets/vpc.PNG }})
 
-![Firewall Rule]({{ "/assets/firewall.jpg" | https://AddiIgneel.github.io/assets/firewall.jpg }})
+![Firewall Rule]({{ "/assets/firewall.jpg" | AddiIgneel.github.io/assets/firewall.PNG }})
 
-![Firewall Rule]({{ "/assets/firewall_1.jpg" | https://AddiIgneel.github.io/assets/firewall_1.jpg }})
+![Firewall Rule]({{ "/assets/firewall_1.jpg" | https://AddiIgneel.github.io/assets/firewall_1.PNG }})
 
 4. Now go to Compute Engine. Select Images and then create Image. Fill the next form as shown in picture below. Image will take 10-15 minutes to be created. Source : Cloud Storage File .... Cloud Storage File: cs231n-files/cs231n_image.tar.gz
 
-![Image Creation]({{ "/assets/image.jpg" | https://AddiIgneel.github.io/assets/image.jpg }})
+![Image Creation]({{ "/assets/image.jpg" | https://AddiIgneel.github.io/assets/image.PNG }})
 
 5. Click on storage from the left column and then browse. Click on Create Bucket. Enter name and Choose Regional option. 
 
-![Storage]({{ "/assets/storage.jpg" | https://AddiIgneel.github.io/assets/storage.jpg }})
+![Storage]({{ "/assets/storage.jpg" | https://AddiIgneel.github.io/assets/storage.PNG }})
 
-![Storage]({{ "/assets/storage_1.jpg" | https://AddiIgneel.github.io/assets/storage_1.jpg }})
+![Storage]({{ "/assets/storage_1.jpg" | https://AddiIgneel.github.io/assets/storage_1.PNG }})
 
 6. Upload the "setting.zip" file to this bucket. The file can be downloaded from following link : https://drive.google.com/open?id=1-hPhx2khRu5SqALow0T3VkmOnZTKepGu
 
 7. Go to compute engine and then VM Instances. Click on create new instance. Select region as "Us-East1-d" Select the RAM, CPU you like. Click customize and select GPU as shown below. 
 
-![Instance Creation]({{ "/assets/instance_1.jpg" | https://AddiIgneel.github.io/assets/instance_1.jpg }})
+![Instance Creation]({{ "/assets/instance_1.jpg" | https://AddiIgneel.github.io/assets/instance_1.PNG }})
 
 8. Select change button shown in boot disk column. Select Custom Images. Select the image created in step 4. 
 
-![Instance Creation]({{ "/assets/instance_2.jpg" | https://AddiIgneel.github.io/assets/instance_2.jpg }})
+![Instance Creation]({{ "/assets/instance_2.jpg" | https://AddiIgneel.github.io/assets/instance_2.PNG }})
 
 9. Scroll down and select the tick box next to "Allow HTTP traffic and Allow HTTPS traffic"
 
 8. Click on Management,Disks,Networking blue bar. Select Networking and type jupyter in Network Tag field as shown below.
 
-![Instance Creation]({{ "/assets/instance_3.jpg" | https://AddiIgneel.github.io/assets/instance_3.jpg }})
+![Instance Creation]({{ "/assets/instance_3.jpg" | https://AddiIgneel.github.io/assets/instance_3.PNG }})
 
 
 10. Click on create Instance. 
