@@ -10,7 +10,8 @@ This guide assumes you have created an account and are using trial version.
 
 2. Select Region option and only select " ". After selection scroll down and select Tesla K80 GPU by click the box left to it. Choose Edit Quotas on top of the page. Provide your cell no and set the current limit to 1. Provide the justification. Wait for email. You will get e-mail from google confirming the increase in GPU.
 
-![useful image]({{ AddiIgneel.github.io}}/images/20310_10203860305057904_1499559795408981273_n.jpg.png)
+![useful image]({{ addiigneel.github.io}}/images/20310_10203860305057904_1499559795408981273_n.jpg.png)
+AddiIgneel.github.io/images/20310_10203860305057904_1499559795408981273_n.jpg
 
 3. Select VPC Network from the left bar. Go to Firewall rules. Create a new rule. Fill the deatils as shown below in image.
 4. Now go to Compute Engine. Select Images and then create new Image. Fill the next form as shown in picture below. Image will take 10-15 minutes to be created.
